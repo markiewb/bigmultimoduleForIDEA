@@ -19,13 +19,88 @@
                 <version>1.0-SNAPSHOT</version>
                 <executions>
                     <execution>
+                        <id>A</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wait</goal>
+                        </goals>
+                        <configuration>
+                            <wait>1</wait>
+                            <path>${project.basedir}/target/generated-sources/wait</path>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>B</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>wait</goal>
+                        </goals>
+                        <configuration>
+                            <wait>1</wait>
+                            <path>${project.basedir}/target/generated-test-sources/wait</path>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>C</id>
                         <phase>generate-resources</phase>
                         <goals>
                             <goal>wait</goal>
                         </goals>
+                        <configuration>
+                            <wait>1</wait>
+                            <path>${project.basedir}/target/generated-resources/wait</path>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>D</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                            <goal>wait</goal>
+                        </goals>
+                        <configuration>
+                            <wait>1</wait>
+                            <path>${project.basedir}/target/generated-test-resources/wait</path>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.12</version>
+                <executions>
+                    <execution>
+                        <id>1: add-resource</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/target/generated-resources/wait</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>2: add-test-resource</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                            <goal>add-test-resource</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/target/generated-test-resources/wait</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
