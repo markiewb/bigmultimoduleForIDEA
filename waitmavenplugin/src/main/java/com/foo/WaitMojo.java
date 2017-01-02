@@ -6,9 +6,9 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 /**
- * Says "Hi" to the user.
+ * Configures a wait.
  */
-@Mojo(name = "sayhi")
+@Mojo(name = "wait")
 public class WaitMojo extends AbstractMojo {
 
     /**
