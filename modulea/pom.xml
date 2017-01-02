@@ -13,6 +13,7 @@
 
     <build>
         <plugins>
+            <!-- generate (test) (re-)sources, IDEA has to detect them properly-->
             <plugin>
                 <groupId>com.foo</groupId>
                 <artifactId>wait-maven-plugin</artifactId>
@@ -65,6 +66,7 @@
                 </executions>
             </plugin>
 
+            <!-- Add this to put the generated resources into the jar files -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
