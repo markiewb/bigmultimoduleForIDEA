@@ -11,8 +11,20 @@
     <modules>
         <module>modulea</module>
         <module>waitmavenplugin</module>
-        <module>bigwar</module>
     </modules>
+    <profiles>
+        <profile>
+            <!-- Hide the module from IDEA, so that its long running generate-resources plugin will not slow down the import process into IDEA -->
+            <id>includingBigWar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>bigwar</module>
+            </modules>
+
+        </profile>
+    </profiles>
 
 
 </project>
