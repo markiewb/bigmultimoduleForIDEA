@@ -11,6 +11,7 @@
     <modules>
         <module>modulea</module>
         <module>moduleb</module>
+        <module>waitmavenplugin</module>
     </modules>
 
 
